@@ -55,7 +55,8 @@ SECTIONS
 		*libudhcpd.a: (.text .text.* .rodata .rodata.*)
 		*libaliyun.a: (.text .text.* .rodata .rodata.*)
 		*libwlan.a: (.text .text.* .rodata .rodata.*)
-		*libxrsys.a: (.text .text.* .rodata .rodata.*)
+		/* Match the Tuya XR809 SDK's live-flash policy: libxrsys and libchip
+		 * are deliberately omitted from XIP and therefore remain in SRAM. */
 		*libsc_assistant.a: (.text .text.* .rodata .rodata.*)
 		*libsmartlink.a: (.text .text.* .rodata .rodata.*)
 		*libairkiss_aes.a: (.text .text.* .rodata .rodata.*)
@@ -68,26 +69,6 @@ SECTIONS
 		*libxz.a: (.text .text.* .rodata .rodata.*)
 		*libconsole.a: (.text .text.* .rodata .rodata.*)
 		*libutil.a: (.text .text.* .rodata .rodata.*)
-
-		*libchip.a:hal_mbox.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_wdg.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_timer.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_rtc.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_crypto.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_sdhost.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:sd.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:core.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:test.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_i2s.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_ac101.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_ac101s.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_codec.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_i2c.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_dmic.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_pwm.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_spi.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_csi.o (.text .text.* .rodata .rodata.*)
-		*libchip.a:hal_efuse.o (.text .text.* .rodata .rodata.*)
 
 		*libm.a: (EXCLUDE_FILE (lib_a-s_fpclassify.o lib_a-sf_fpclassify.o) .text
 		          EXCLUDE_FILE (lib_a-s_fpclassify.o lib_a-sf_fpclassify.o) .text.*
